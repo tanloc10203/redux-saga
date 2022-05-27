@@ -12,19 +12,21 @@ function App() {
   }, []);
 
   return (
-    <Switch>
-      <Route path="/login">
-        <LoginPage />
-      </Route>
+    <>
+      <Switch>
+        <PrivateRoute path="/login">
+          <LoginPage />
+        </PrivateRoute>
 
-      <PrivateRoute path="/admin">
-        <AdminLayout />
-      </PrivateRoute>
+        <PrivateRoute path="/admin">
+          <AdminLayout />
+        </PrivateRoute>
 
-      <Route>
-        <NotFound />
-      </Route>
-    </Switch>
+        <Route>
+          <NotFound />
+        </Route>
+      </Switch>
+    </>
   );
 }
 
