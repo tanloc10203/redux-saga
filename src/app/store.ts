@@ -2,6 +2,7 @@ import createSagaMiddleware from '@redux-saga/core';
 import { Action, combineReducers, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import authReducer from 'features/auth/authSlice';
+import dashboardReducer from 'features/dashboard/dashboardSlice';
 import { history } from 'utils';
 import counterReducer from '../features/counter/counterSlice';
 import rootSaga from './rootSaga';
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   router: connectRouter(history),
   counter: counterReducer,
   auth: authReducer,
+  dashboard: dashboardReducer,
 });
 
 export const store = configureStore({

@@ -1,4 +1,4 @@
-import cityAApti from 'api/cityApi';
+import cityApi from 'api/cityApi';
 import { NotFound, PrivateRoute } from 'components/Common';
 import { AdminLayout } from 'components/Layout';
 import { LoginPage } from 'features/auth/pages';
@@ -8,15 +8,15 @@ import './App.css';
 
 function App() {
   useEffect(() => {
-    cityAApti.getAll().then((response) => console.log(response));
+    cityApi.getAll().then((response) => console.log(response));
   }, []);
 
   return (
     <>
       <Switch>
-        <PrivateRoute path="/login">
+        <Route path="/login">
           <LoginPage />
-        </PrivateRoute>
+        </Route>
 
         <PrivateRoute path="/admin">
           <AdminLayout />

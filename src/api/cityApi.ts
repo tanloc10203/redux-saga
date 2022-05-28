@@ -1,7 +1,7 @@
 import { City, ListResponses } from 'models';
 import axiosClient from './axiosClient';
 
-const cityAApti = {
+const cityApi = {
   getAll(): Promise<ListResponses<City>> {
     return axiosClient.get('/cities', {
       params: {
@@ -12,4 +12,4 @@ const cityAApti = {
   },
 };
 
-export default cityAApti;
+export default cityApi;
