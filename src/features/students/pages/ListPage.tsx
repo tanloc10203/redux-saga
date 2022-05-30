@@ -6,6 +6,7 @@ import { selectCityList, selectCityMap } from 'features/city/citySlice';
 import { ListParams, Student } from 'models';
 import React, { useEffect } from 'react';
 import { Link, useHistory, useRouteMatch } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import StudentFilters from '../components/StudentFilters';
 import StudentTable from '../components/StudentTable';
 import { studentActions, studentState } from '../studentSlice';
@@ -59,9 +60,11 @@ export default function ListPage() {
   const handleRemove = async (student: Student) => {
     try {
       await studentApi.remove(student?.id as string);
+
+      toast.success(`Remove student named "${student.name} success"`);
+
       const newFilter = { ...filter };
       dispatch(studentActions.setFilter(newFilter));
-      console.log(student);
     } catch (error) {
       console.log('Remove Student Failed', error);
     }
