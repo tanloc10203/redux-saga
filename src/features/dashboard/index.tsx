@@ -30,8 +30,6 @@ export default function Dashboard() {
   const { loading, highestStudentList, lowestStudentList, rankingByCityList, statistics } =
     useAppSelector(dashboardState);
 
-  console.log({ loading, highestStudentList, lowestStudentList, rankingByCityList, statistics });
-
   useEffect(() => {
     dispatch(dashboardActions.fetchData());
   }, [dispatch]);
